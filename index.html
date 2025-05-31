@@ -536,20 +536,20 @@
                 </div>
 
                 <div class="writing-task-item">
-                    <p>3. (B1) She started learning English five years ago.</p>
-                    <p>She ____________________ English for five years. (HAS)</p>
+                    <p>3. (B1) It's a long time since I last visited my grandparents.</p>
+                    <p>I ____________________ my grandparents for a long time. (VISITED)</p>
                     <input type="text" class="writing-question-input" id="writing-q3" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>4. (B2) It was such a boring film that we left before the end.</p>
-                    <p>The film was ____________________ we left before the end. (SO)</p>
+                    <p>4. (B2) They say that a healthy diet is essential for a good life.</p>
+                    <p>A healthy diet ____________________ to be essential for a good life. (SAID)</p>
                     <input type="text" class="writing-question-input" id="writing-q4" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>5. (C1/C2) Despite the challenging conditions, they managed to complete the project on time.</p>
-                    <p>Although the conditions were ____________________, they managed to complete the project on time. (DIFFICULT)</p>
+                    <p>5. (C1/C2) She is such a brilliant speaker that everyone listens attentively.</p>
+                    <p>Such ____________________ everyone listens attentively. (SPEAKER)</p>
                     <input type="text" class="writing-question-input" id="writing-q5" placeholder="Your answer...">
                 </div>
                 <div class="word-count">Questions answered: <span id="writing-answered-count">0</span> / 5</div>
@@ -824,11 +824,11 @@
             // Calculate writing score (simplified - would normally be evaluated by teacher)
             writingScore = 0;
             const writingCorrectAnswers = {
-                'writing-q1': 'am', // A1
-                'writing-q2': 'was', // A2
-                'writing-q3': 'has been learning', // B1 - example of multiple words
-                'writing-q4': 'so boring that', // B2
-                'writing-q5': 'difficult' // C1/C2 - example of single word but complex context
+                'writing-q1': 'am',
+                'writing-q2': 'was',
+                'writing-q3': 'haven\'t visited', // Updated for B1
+                'writing-q4': 'is said', // Updated for B2
+                'writing-q5': 'a brilliant speaker is she that' // Updated for C1/C2 (complex inversion)
             };
             writingQuestionInputs.forEach(input => {
                 const questionId = input.id;
@@ -905,29 +905,32 @@
             const { jsPDF } = window.jspdf;
             const input = document.getElementById('score-card'); // Capture the score-card div
 
-            html2canvas(input, { scale: 2 }).then(canvas => {
+            html2canvas(input, { scale: 2, useCORS: true }).then(canvas => { // Added useCORS: true
                 const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+
                 const imgWidth = 210; // A4 width in mm
                 const pageHeight = 297; // A4 height in mm
                 const imgHeight = canvas.height * imgWidth / canvas.width;
-                let heightLeft = imgHeight;
 
-                const doc = new jsPDF('p', 'mm');
+                let heightLeft = imgHeight;
                 let position = 0;
 
-                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                 heightLeft -= pageHeight;
 
-                while (heightLeft >= 0) {
-                    position = heightLeft - imgHeight;
-                    doc.addPage();
-                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                while (heightLeft > 0) { // Changed condition to > 0
+                    position = -heightLeft; // Corrected position for next page
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                     heightLeft -= pageHeight;
                 }
 
-                // Save the PDF
-                const fileName = `IRIS_English_Test_Report_${fullNameEnInput.value.replace(/\s+/g, '_')}.pdf`;
-                doc.save(fileName);
+                const fileName = `IRIS_English_Test_Report_${fullNameEnInput.value.replace(/\s+/g, '_') || 'Participant'}.pdf`; // Added fallback for filename
+                pdf.save(fileName);
+            }).catch(error => {
+                console.error("Error generating PDF:", error);
+                alert("Could not generate PDF report. Please ensure all details are filled and try again. (Check console for more details)");
             });
         }
     </script>

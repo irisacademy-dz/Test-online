@@ -330,6 +330,57 @@
             margin-top: 5px;
         }
 
+        /* AidaForm container styling */
+        .aidaform-container {
+            width: 100%;
+            min-height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* New Writing Task Styles */
+        .card {
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: #f9f9f9;
+            margin-bottom: 20px; /* Added to separate from other elements */
+        }
+        .card input[type="text"] {
+            width: calc(100% - 22px); /* Adjust width for padding */
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .card button {
+            padding: 10px 20px;
+            background: var(--primary); /* Use primary color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .card button:hover {
+            background: #005a73; /* Darker primary color on hover */
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .writing-buttons-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .writing-buttons-container button {
+            width: auto;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .header-content {
@@ -355,15 +406,6 @@
                 width: 100%;
                 height: 180px;
             }
-        }
-
-        /* AidaForm container styling */
-        .aidaform-container {
-            width: 100%;
-            min-height: 500px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin: 20px 0;
         }
     </style>
 </head>
@@ -536,7 +578,7 @@
 
         <div id="writing-section" class="test-section hidden">
             <div class="section-header">
-                <h2 class="section-title">Writing Skills</h2>
+                <h2 class="section-title">Writing Skills: Correct the Mistake</h2>
                 <div class="timer">Time remaining: <span id="writing-timer">05:00</span></div>
             </div>
 
@@ -544,45 +586,20 @@
                 <div class="progress-bar" id="writing-progress" style="width: 0%"></div>
             </div>
 
-            <div class="question">
-                <p class="question-text">Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. (5 questions)</p>
-
-                <div class="writing-task-item">
-                    <p>1. (A1) My name is Sarah.</p>
-                    <p>I ____________________ Sarah. (AM)</p>
-                    <input type="text" class="writing-question-input" id="writing-q1" placeholder="Your answer...">
+            <div class="card">
+                <p><strong>Level:</strong> <span id="level"></span></p>
+                <p><strong>Sentence:</strong> <span id="sentence"></span></p>
+                <input type="text" id="userInput" placeholder="Type your corrected sentence here">
+                <div class="writing-buttons-container">
+                    <button id="submitWritingAnswer" class="btn btn-primary">Submit</button>
+                    <button id="nextWritingQuestion" class="btn btn-primary">Next</button>
                 </div>
-
-                <div class="writing-task-item">
-                    <p>2. (A2) I haven't seen John for three months.</p>
-                    <p>The last time I saw John ____________________ three months ago. (WAS)</p>
-                    <input type="text" class="writing-question-input" id="writing-q2" placeholder="Your answer...">
-                </div>
-
-                <div class="writing-task-item">
-                    <p>3. (B1) It's a long time since I last visited my grandparents.</p>
-                    <p>I ____________________ my grandparents for a long time. (VISITED)</p>
-                    <input type="text" class="writing-question-input" id="writing-q3" placeholder="Your answer...">
-                </div>
-
-                <div class="writing-task-item">
-                    <p>4. (B2) They say that a healthy diet is essential for a good life.</p>
-                    <p>A healthy diet ____________________ to be essential for a good life. (SAID)</p>
-                    <input type="text" class="writing-question-input" id="writing-q4" placeholder="Your answer...">
-                </div>
-
-                <div class="writing-task-item">
-                    <p>5. (C1/C2) She is such a brilliant speaker that everyone listens attentively.</p>
-                    <p>Such ____________________ everyone listens attentively. (SPEAKER)</p>
-                    <input type="text" class="writing-question-input" id="writing-q5" placeholder="Your answer...">
-                </div>
+                <div class="feedback" id="feedback"></div>
                 <div class="word-count">Questions answered: <span id="writing-answered-count">0</span> / 5</div>
-
             </div>
-
             <div class="navigation">
                 <button class="btn btn-accent" id="back-to-reading">Back</button>
-                <button class="btn btn-primary" id="next-to-listening">Next Section</button>
+                <button class="btn btn-primary" id="next-to-listening" disabled>Next Section</button>
             </div>
         </div>
 
@@ -766,7 +783,7 @@
                 <h2>Your English Proficiency Report</h2>
                 <p>Based on your performance across Reading, Writing, Speaking, and Listening sections.</p>
 
-                <div class="score-card">
+                <div class="score-card" id="score-card">
                     <h3>Participant Details:</h3>
                     <p><strong>Full Name (English):</strong> <span id="report-full-name-en"></span></p>
                     <p><strong>Full Name (Arabic):</strong> <span id="report-full-name-ar" dir="rtl"></span></p>
@@ -872,20 +889,67 @@
         const listeningProgressBar = document.getElementById('listening-progress');
         const speakingProgressBar = document.getElementById('speaking-progress');
 
-        // Writing section elements
-        const writingQuestionInputs = document.querySelectorAll('.writing-question-input');
+        // Writing section elements (new task)
+        const writingUserInput = document.getElementById('userInput');
+        const writingLevelDisplay = document.getElementById('level');
+        const writingSentenceDisplay = document.getElementById('sentence');
+        const writingFeedbackDisplay = document.getElementById('feedback');
+        const submitWritingAnswerBtn = document.getElementById('submitWritingAnswer');
+        const nextWritingQuestionBtn = document.getElementById('nextWritingQuestion');
         const writingAnsweredCountDisplay = document.getElementById('writing-answered-count');
 
         // Test state
         let currentSection = 0; // 0: Intro, 1: Reading, 2: Writing, 3: Listening, 4: Speaking, 5: Results
         const sections = [introScreen, readingSection, writingSection, listeningSection, speakingSection, resultsSection];
         let readingScore = 0;
-        let writingScore = 0;
+        let writingScore = 0; // Will be aggregated from writingAttemptScores
         let listeningScore = 0;
         let speakingScore = 0; // Speaking score will be manually assessed
-        const totalReadingQuestions = 5; // Each question worth 1 point for a total of 5
-        const totalWritingQuestions = 5; // Each question worth 1 point for a total of 5
-        const totalListeningQuestions = 8; // Each question worth 1 point for a total of 8
+        const totalReadingQuestions = 5;
+        const totalListeningQuestions = 8; // Still 8 questions for listening, scaled to 5 points
+
+        // --- New Writing Task Data & State ---
+        const writingTasks = [
+            {
+                level: "A1",
+                sentence: "She have a cat.",
+                correct: ["She has a cat."],
+                hint: "Check subject-verb agreement."
+            },
+            {
+                level: "A2",
+                sentence: "I didn’t went to the party.",
+                correct: ["I didn’t go to the party."],
+                hint: "Use base verb after 'did'."
+            },
+            {
+                level: "B1",
+                sentence: "I look forward to meet you.",
+                correct: ["I look forward to meeting you."],
+                hint: "Use gerund after 'look forward to'."
+            },
+            {
+                level: "B2",
+                sentence: "It depends of the situation.",
+                correct: ["It depends on the situation."],
+                hint: "Common collocation with 'depend'."
+            },
+            {
+                level: "C1",
+                sentence: "Not only he was late, but also rude.",
+                correct: ["Not only was he late, but he was also rude.", "Not only was he late, but also he was rude."], // Added alternative
+                hint: "Inversion after 'Not only'."
+            },
+            {
+                level: "C2",
+                sentence: "He behaves as if he knows everything.",
+                correct: ["He behaves as if he knew everything."],
+                hint: "Use past tense for hypothetical."
+            }
+        ];
+
+        let currentWritingQuestionIndex = 0;
+        let writingAttemptScores = []; // Stores raw scores (0, 60, 90) for each of the 5 questions
 
         // Initialize AidaForm script
         (function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-app";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://widget.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})();
@@ -908,6 +972,7 @@
         nextToWritingBtn.addEventListener('click', function() {
             navigateToSection(2);
             startTimer('writing', 5 * 60); // 5 minutes for writing
+            showWritingTask(); // Display the first writing question
         });
 
         backToReadingBtn.addEventListener('click', function() {
@@ -941,10 +1006,9 @@
             generatePDF();
         });
 
-        // Writing section input tracking
-        writingQuestionInputs.forEach(input => {
-            input.addEventListener('input', updateWritingProgress);
-        });
+        // --- New Writing Task Event Listeners ---
+        submitWritingAnswerBtn.addEventListener('click', checkWritingAnswer);
+        nextWritingQuestionBtn.addEventListener('click', nextWritingQuestion);
 
         // Navigation function
         function navigateToSection(sectionIndex) {
@@ -959,7 +1023,13 @@
         }
 
         // Timer function
+        let timers = {};
         function startTimer(section, durationInSeconds) {
+            // Clear any existing timer for this section
+            if (timers[section]) {
+                clearInterval(timers[section]);
+            }
+
             let timer = durationInSeconds;
             const interval = setInterval(function() {
                 const minutes = Math.floor(timer / 60);
@@ -974,11 +1044,19 @@
 
                 if (--timer < 0) {
                     clearInterval(interval);
+                    timers[section] = null; // Clear timer reference
                     // Auto-submit or move to next section if time runs out
                     if (section === 'reading') {
                         navigateToSection(2);
                         startTimer('writing', 5 * 60);
+                        showWritingTask(); // Display the first writing question
                     } else if (section === 'writing') {
+                        // Ensure all 5 writing questions are marked as answered before moving
+                        while (writingAttemptScores.length < 5) {
+                            writingAttemptScores.push(0); // Assign 0 for unanswered questions
+                        }
+                        updateWritingProgress(); // Update the counter
+                        nextToListeningBtn.disabled = false; // Enable next button
                         navigateToSection(3);
                         startTimer('listening', 5 * 60);
                     } else if (section === 'listening') {
@@ -988,17 +1066,113 @@
                     // For speaking, timer just runs out, doesn't auto-navigate to results
                 }
             }, 1000);
+            timers[section] = interval; // Store the interval ID
         }
 
-        // Update writing progress counter
-        function updateWritingProgress() {
-            let answeredCount = 0;
-            writingQuestionInputs.forEach(input => {
-                if (input.value.trim() !== '') {
-                    answeredCount++;
+        // --- New Writing Task Functions ---
+        function normalize(text) {
+            return text.toLowerCase().replace(/[.,!?;]/g, '').trim(); // Added ;
+        }
+
+        function levenshtein(a, b) {
+            const matrix = Array.from({length: a.length + 1}, () => []);
+            for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+            for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+            for (let i = 1; i <= a.length; i++) {
+                for (let j = 1; j <= b.length; j++) {
+                    const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j] + 1,       // deletion
+                        matrix[i][j - 1] + 1,       // insertion
+                        matrix[i - 1][j - 1] + cost // substitution
+                    );
                 }
-            });
-            writingAnsweredCountDisplay.textContent = answeredCount;
+            }
+            return matrix[a.length][b.length];
+        }
+
+        function similarity(a, b) {
+            const dist = levenshtein(normalize(a), normalize(b));
+            const maxLen = Math.max(normalize(a).length, normalize(b).length);
+            return (1 - dist / maxLen);
+        }
+
+        function showWritingTask() {
+            if (currentWritingQuestionIndex < 5) { // Only show the first 5 questions from the tasks array
+                const task = writingTasks[currentWritingQuestionIndex];
+                writingLevelDisplay.textContent = task.level;
+                writingSentenceDisplay.textContent = task.sentence;
+                writingUserInput.value = '';
+                writingFeedbackDisplay.textContent = '';
+                submitWritingAnswerBtn.disabled = false; // Enable submit button for new question
+                nextWritingQuestionBtn.disabled = true; // Disable next until submitted
+            } else {
+                writingLevelDisplay.textContent = "Test Completed";
+                writingSentenceDisplay.textContent = "You have completed all writing questions.";
+                writingUserInput.value = '';
+                writingUserInput.disabled = true;
+                submitWritingAnswerBtn.disabled = true;
+                nextWritingQuestionBtn.disabled = true;
+                nextToListeningBtn.disabled = false; // Enable navigation to next section
+                clearInterval(timers['writing']); // Stop the writing timer
+                document.getElementById('writing-progress').style.width = '100%'; // Mark progress as complete
+            }
+            updateWritingProgress();
+        }
+
+        function checkWritingAnswer() {
+            if (currentWritingQuestionIndex >= 5) return; // Prevent checking if all questions done
+
+            const userInput = writingUserInput.value;
+            const correctAnswers = writingTasks[currentWritingQuestionIndex].correct;
+            let scoreForThisQuestion = 0; // Raw score (0, 60, 90)
+
+            let isCorrect = false;
+            for (let answer of correctAnswers) {
+                const sim = similarity(userInput, answer);
+                if (normalize(userInput) === normalize(answer)) {
+                    writingFeedbackDisplay.innerHTML = `✅ Correct!`;
+                    scoreForThisQuestion = 90; // Perfect score
+                    isCorrect = true;
+                    break;
+                } else if (sim >= 0.85) { // Adjusted threshold for "almost perfect"
+                    writingFeedbackDisplay.innerHTML = `✅ Almost perfect (Score: 90)`;
+                    scoreForThisQuestion = 90;
+                    isCorrect = true;
+                    break;
+                } else if (sim >= 0.60) { // Adjusted threshold for "partially correct"
+                    writingFeedbackDisplay.innerHTML = `⚠️ Partially correct (Score: 60)<br>💡 Hint: ${writingTasks[currentWritingQuestionIndex].hint}`;
+                    scoreForThisQuestion = 60;
+                }
+            }
+
+            if (!isCorrect && scoreForThisQuestion === 0) { // If no correct/almost/partial match
+                writingFeedbackDisplay.innerHTML = `❌ Incorrect (Score: 0)<br>💡 Hint: ${writingTasks[currentWritingQuestionIndex].hint}`;
+                scoreForThisQuestion = 0;
+            }
+
+            // Store the score for the current question
+            // Ensure we don't add more than 5 scores
+            if (writingAttemptScores.length <= currentWritingQuestionIndex) {
+                writingAttemptScores.push(scoreForThisQuestion);
+            } else {
+                writingAttemptScores[currentWritingQuestionIndex] = scoreForThisQuestion;
+            }
+
+            submitWritingAnswerBtn.disabled = true; // Disable submit after checking
+            nextWritingQuestionBtn.disabled = false; // Enable next button
+        }
+
+        function nextWritingQuestion() {
+            currentWritingQuestionIndex++;
+            showWritingTask();
+        }
+
+        // Update writing progress counter (now tracks completed questions)
+        function updateWritingProgress() {
+            writingAnsweredCountDisplay.textContent = Math.min(currentWritingQuestionIndex, 5);
+            const progress = (Math.min(currentWritingQuestionIndex, 5) / 5) * 100;
+            writingProgressBar.style.width = `${progress}%`;
         }
 
         // Calculate scores
@@ -1015,25 +1189,16 @@
                 }
             });
 
-            // Calculate writing score (simplified - would normally be evaluated by teacher)
+            // Calculate writing score from writingAttemptScores (map to 5 points max)
             writingScore = 0;
-            const writingCorrectAnswers = {
-                'writing-q1': 'am',
-                'writing-q2': 'was',
-                'writing-q3': 'haven\'t visited', // Updated for B1
-                'writing-q4': 'is said', // Updated for B2
-                'writing-q5': 'a brilliant speaker is she that' // Updated for C1/C2 (complex inversion)
-            };
-            writingQuestionInputs.forEach(input => {
-                const questionId = input.id;
-                // Simple check: if the input is not empty, give it 1 point for now.
-                // A more robust system would involve comparing with correct answers or AI evaluation.
-                if (input.value.trim().toLowerCase() === writingCorrectAnswers[questionId].toLowerCase()) {
-                    writingScore += 1; // 1 point per correct answer, total 5
-                }
+            // Map raw scores (0, 60, 90) to a 0-5 scale for 5 questions
+            const scoreMapping = { 90: 1, 60: 0.5, 0: 0 }; // 1 point for 90, 0.5 for 60, 0 for 0
+            writingAttemptScores.forEach(rawScore => {
+                writingScore += scoreMapping[rawScore] || 0;
             });
+            writingScore = Math.min(writingScore, 5); // Cap at 5 points
 
-            // Calculate listening score
+            // Calculate listening score (scale from 8 questions to 5 points)
             listeningScore = 0;
             const listeningQuestions = document.querySelectorAll('#listening-section [data-question-type]');
             listeningQuestions.forEach(question => {
@@ -1041,9 +1206,11 @@
                 const selectedOption = question.querySelector(`input[type="radio"]:checked`);
 
                 if (selectedOption && selectedOption.value === correctAnswer) {
-                    listeningScore += 1; // 1 point per correct answer, total 8
+                    listeningScore += 1; // 1 point per correct answer out of 8
                 }
             });
+            listeningScore = (listeningScore / totalListeningQuestions) * 5; // Scale to 5 points
+            listeningScore = parseFloat(listeningScore.toFixed(1)); // Round to one decimal place
 
             // Speaking score is not calculated here. It is "To be assessed."
             speakingScore = 0; // Initialize to 0, will be manually updated
@@ -1057,38 +1224,38 @@
 
             // Overall score now includes Reading, Writing, and Listening, plus a note about pending speaking score
             const calculatedTotalScore = readingScore + writingScore + listeningScore;
-            document.getElementById('overall-score').textContent = `${calculatedTotalScore} / 15 (Reading, Writing & Listening only - Speaking to be assessed)`;
+            document.getElementById('overall-score').textContent = `${calculatedTotalScore.toFixed(1)} / 15 (Reading, Writing & Listening only - Speaking to be assessed)`;
 
             // Update skill meters
             document.getElementById('reading-score').textContent = `${readingScore} / 5`;
             document.getElementById('writing-score').textContent = `${writingScore} / 5`;
-            document.getElementById('listening-score').textContent = `${listeningScore} / 8`;
+            document.getElementById('listening-score').textContent = `${listeningScore} / 5`; // Display out of 5
             document.getElementById('speaking-score').textContent = `To be assessed / 5`;
 
             document.getElementById('reading-meter').style.width = `${(readingScore / 5) * 100}%`;
             document.getElementById('writing-meter').style.width = `${(writingScore / 5) * 100}%`;
-            document.getElementById('listening-meter').style.width = `${(listeningScore / 8) * 100}%`;
-            document.getElementById('speaking-meter').style.width = `0%`;
+            document.getElementById('listening-meter').style.width = `${(listeningScore / 5) * 100}%`;
+            document.getElementById('speaking-meter').style.width = `0%`; // Speaking meter remains 0 for now
 
             // Determine CEFR level based on available scores (Reading + Writing + Listening)
             let cefrLevel = '';
             let recommendations = '';
             let suggestedCourse = '';
-            const combinedScore = readingScore + writingScore + listeningScore; // Max 18
+            const combinedScore = readingScore + writingScore + listeningScore; // Max 15
 
-            if (combinedScore >= 15) { // Equivalent to C1/C2 range
+            if (combinedScore >= 12) { // Equivalent to C1/C2 range (80% of 15)
                 cefrLevel = 'C1/C2 - Proficient';
                 recommendations = 'You have demonstrated a high level of English proficiency in Reading, Writing and Listening. Focus on refining subtle nuances and complex structures. Your Speaking results will provide further insight.';
                 suggestedCourse = 'Advanced English (C1/C2 Level)';
-            } else if (combinedScore >= 12) { // Equivalent to B2 range
+            } else if (combinedScore >= 9) { // Equivalent to B2 range (60% of 15)
                 cefrLevel = 'B2 - Upper Intermediate';
                 recommendations = 'You have a good command of English in Reading, Writing and Listening. Expand your vocabulary and practice more complex grammatical structures. Your Speaking results will provide further insight.';
                 suggestedCourse = 'Upper Intermediate English (B2 Level)';
-            } else if (combinedScore >= 9) { // Equivalent to B1 range
+            } else if (combinedScore >= 6) { // Equivalent to B1 range (40% of 15)
                 cefrLevel = 'B1 - Intermediate';
                 recommendations = 'You have an intermediate level of English in Reading, Writing and Listening. Regular practice across all skills is recommended, especially for speaking fluency.';
                 suggestedCourse = 'Intermediate English (B1 Level)';
-            } else if (combinedScore >= 6) { // Equivalent to A2 range
+            } else if (combinedScore >= 3) { // Equivalent to A2 range (20% of 15)
                 cefrLevel = 'A2 - Pre-Intermediate';
                 recommendations = 'You have a basic command of English in Reading, Writing and Listening. Focus on building core vocabulary and mastering fundamental grammar. Your Speaking results will provide further insight.';
                 suggestedCourse = 'Pre-Intermediate English (A2 Level)';
@@ -1106,20 +1273,19 @@
         // Generate PDF report
         function generatePDF() {
             const { jsPDF } = window.jspdf;
-            const input = document.getElementById('score-card');
+            const input = document.getElementById('results-section'); // Target the entire results section
 
             // Log if input element is found
             if (!input) {
-                console.error("Error: 'score-card' element not found.");
-                alert("Could not find the score card to generate PDF. Please ensure the test is completed.");
+                console.error("Error: 'results-section' element not found.");
+                alert("Could not find the results section to generate PDF. Please ensure the test is completed.");
                 return;
             }
-            console.log("Found 'score-card' element:", input);
+            console.log("Found 'results-section' element:", input);
 
             // Use a short delay to ensure rendering is complete after section becomes visible
-            // This is a common workaround for html2canvas issues after display changes
             setTimeout(() => {
-                html2canvas(input, { scale: 2, useCORS: true, logging: true }).then(canvas => { // Added logging: true
+                html2canvas(input, { scale: 2, useCORS: true, logging: true }).then(canvas => {
                     console.log("html2canvas finished rendering. Canvas:", canvas);
 
                     if (!canvas) {

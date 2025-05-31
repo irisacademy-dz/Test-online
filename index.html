@@ -599,7 +599,7 @@
                     <p><strong>البريد الإلكتروني:</strong> <span id="report-email-address-ar" dir="rtl"></span></p>
 
                     <h3>Overall Score</h3>
-                    <div class="overall-score" id="overall-score">-- / 20</div>
+                    <div class="overall-score" id="overall-score">-- / 10 (Reading & Writing only - Speaking & Listening to be assessed)</div>
                     <div class="cefr-level" id="cefr-level">--</div>
 
                     <div class="skill-meter">
@@ -903,35 +903,80 @@
         // Generate PDF report
         function generatePDF() {
             const { jsPDF } = window.jspdf;
-            const input = document.getElementById('score-card'); // Capture the score-card div
+            const input = document.getElementById('score-card');
 
-            html2canvas(input, { scale: 2, useCORS: true }).then(canvas => { // Added useCORS: true
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF('p', 'mm', 'a4');
+            // Log if input element is found
+            if (!input) {
+                console.error("Error: 'score-card' element not found.");
+                alert("Could not find the score card to generate PDF. Please ensure the test is completed.");
+                return;
+            }
+            console.log("Found 'score-card' element:", input);
 
-                const imgWidth = 210; // A4 width in mm
-                const pageHeight = 297; // A4 height in mm
-                const imgHeight = canvas.height * imgWidth / canvas.width;
+            // Use a short delay to ensure rendering is complete after section becomes visible
+            // This is a common workaround for html2canvas issues after display changes
+            setTimeout(() => {
+                html2canvas(input, { scale: 2, useCORS: true, logging: true }).then(canvas => { // Added logging: true
+                    console.log("html2canvas finished rendering. Canvas:", canvas);
 
-                let heightLeft = imgHeight;
-                let position = 0;
+                    if (!canvas) {
+                        console.error("Error: html2canvas returned an invalid canvas.");
+                        alert("Could not generate PDF report. HTML content could not be rendered.");
+                        return;
+                    }
 
-                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
+                    const imgData = canvas.toDataURL('image/png');
+                    console.log("Canvas converted to image data. Data length:", imgData.length);
 
-                while (heightLeft > 0) { // Changed condition to > 0
-                    position = -heightLeft; // Corrected position for next page
-                    pdf.addPage();
+                    if (!imgData || imgData.length < 100) { // Check for minimal image data size
+                        console.error("Error: Image data is empty or too small.");
+                        alert("Could not generate PDF report. Image data is missing.");
+                        return;
+                    }
+
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+
+                    const imgWidth = 210; // A4 width in mm
+                    const pageHeight = 297; // A4 height in mm
+                    const imgHeight = canvas.height * imgWidth / canvas.width;
+
+                    let heightLeft = imgHeight;
+                    let position = 0;
+
+                    console.log(`Image dimensions: ${imgWidth}x${imgHeight}mm. Page height: ${pageHeight}mm`);
+
                     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    console.log(`Added first page image. Height left: ${heightLeft}`);
                     heightLeft -= pageHeight;
-                }
 
-                const fileName = `IRIS_English_Test_Report_${fullNameEnInput.value.replace(/\s+/g, '_') || 'Participant'}.pdf`; // Added fallback for filename
-                pdf.save(fileName);
-            }).catch(error => {
-                console.error("Error generating PDF:", error);
-                alert("Could not generate PDF report. Please ensure all details are filled and try again. (Check console for more details)");
-            });
+                    let pageNum = 1;
+                    while (heightLeft > 0) {
+                        pageNum++;
+                        position = -heightLeft;
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        console.log(`Added page ${pageNum}. Height left: ${heightLeft}`);
+                        heightLeft -= pageHeight;
+                    }
+
+                    // Ensure filename is safe
+                    const baseName = fullNameEnInput.value.replace(/[^a-zA-Z0-9_]/g, '_') || 'Participant'; // Sanitized filename
+                    const fileName = `IRIS_English_Test_Report_${baseName}.pdf`;
+                    console.log("Attempting to save PDF with filename:", fileName);
+
+                    try {
+                        pdf.save(fileName);
+                        console.log("PDF save initiated successfully.");
+                    } catch (saveError) {
+                        console.error("Error saving PDF:", saveError);
+                        alert("An error occurred while saving the PDF. Please check your browser's download settings.");
+                    }
+
+                }).catch(error => {
+                    console.error("Error during html2canvas rendering:", error);
+                    alert("Could not generate PDF report due to rendering issues. Please try again or use a different browser.");
+                });
+            }, 100); // Small delay to ensure content is fully rendered
         }
     </script>
 </body>

@@ -14,7 +14,7 @@
             --success: #28a745;
             --danger: #dc3545;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -23,41 +23,41 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
             background-color: var(--primary);
             color: white;
             padding: 20px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
         }
-        
+
         .logo img {
             height: 50px;
             margin-right: 15px;
         }
-        
+
         .logo h1 {
             margin: 0;
             font-size: 1.8rem;
         }
-        
+
         .test-info {
             background-color: var(--secondary);
             padding: 15px;
@@ -66,12 +66,12 @@
             display: flex;
             justify-content: space-between;
         }
-        
+
         .timer {
             font-weight: bold;
             color: var(--primary);
         }
-        
+
         .test-section {
             background-color: white;
             border-radius: 8px;
@@ -79,7 +79,7 @@
             margin-bottom: 30px;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .section-header {
             border-bottom: 2px solid var(--secondary);
             padding-bottom: 10px;
@@ -88,27 +88,27 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .section-title {
             color: var(--primary);
             margin: 0;
         }
-        
+
         .question {
             margin-bottom: 25px;
         }
-        
+
         .question-text {
             font-weight: 600;
             margin-bottom: 15px;
         }
-        
+
         .options {
             display: grid;
             grid-template-columns: 1fr;
             gap: 10px;
         }
-        
+
         .option {
             display: flex;
             align-items: center;
@@ -119,15 +119,15 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .option:hover {
             background-color: var(--secondary);
         }
-        
+
         .option input {
             margin-right: 10px;
         }
-        
+
         .btn {
             padding: 10px 20px;
             border: none;
@@ -136,29 +136,29 @@
             font-weight: 600;
             transition: all 0.3s;
         }
-        
+
         .btn-primary {
             background-color: var(--primary);
             color: white;
         }
-        
+
         .btn-primary:hover {
             background-color: #005a73;
         }
-        
+
         .btn-accent {
             background-color: var(--accent);
             color: var(--dark);
         }
-        
+
         .btn-accent:hover {
             background-color: #e6b73b;
         }
-        
+
         .hidden {
             display: none;
         }
-        
+
         .writing-area, .speaking-record {
             width: 100%;
             min-height: 120px;
@@ -181,7 +181,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        
+
         .word-count {
             text-align: right;
             font-size: 0.9em;
@@ -195,7 +195,7 @@
             border-radius: 5px;
             margin: 20px 0;
         }
-        
+
         .progress-bar {
             height: 10px;
             border-radius: 5px;
@@ -203,19 +203,19 @@
             width: 0%;
             transition: width 0.5s;
         }
-        
+
         .navigation {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
         }
-        
+
         /* Results section */
         .results-container {
             text-align: center;
             padding: 30px;
         }
-        
+
         .score-card {
             background-color: white;
             border-radius: 10px;
@@ -224,14 +224,14 @@
             max-width: 800px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .overall-score {
             font-size: 3rem;
             font-weight: bold;
             color: var(--primary);
             margin: 20px 0;
         }
-        
+
         .cefr-level {
             display: inline-block;
             background-color: var(--accent);
@@ -240,25 +240,25 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-        
+
         .skill-meter {
             display: flex;
             justify-content: space-around;
             margin: 30px 0;
             flex-wrap: wrap;
         }
-        
+
         .skill {
             flex: 1;
             min-width: 150px;
             margin: 10px;
         }
-        
+
         .skill-name {
             font-weight: bold;
             margin-bottom: 10px;
         }
-        
+
         .meter {
             height: 20px;
             background-color: #e9ecef;
@@ -266,17 +266,17 @@
             overflow: hidden;
             margin-bottom: 10px;
         }
-        
+
         .meter-fill {
             height: 100%;
             background-color: var(--primary);
         }
-        
+
         .skill-score {
             font-weight: bold;
             color: var(--primary);
         }
-        
+
         .recommendations {
             text-align: left;
             margin-top: 30px;
@@ -284,11 +284,11 @@
             background-color: var(--secondary);
             border-radius: 8px;
         }
-        
+
         .print-btn {
             margin-top: 30px;
         }
-        
+
         /* Anti-cheating measures */
         .red-remark {
             color: var(--danger);
@@ -310,24 +310,24 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .logo {
                 margin-bottom: 15px;
                 justify-content: center;
             }
-            
+
             .test-info {
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .skill-meter {
                 flex-direction: column;
             }
@@ -355,13 +355,13 @@
             </div>
         </div>
     </header>
-    
+
     <div class="container">
         <div id="intro-screen" class="test-section">
             <h2 class="section-title">Welcome to Your English Placement Test</h2>
-            <p>This test will evaluate your English proficiency in Reading, Writing, and Speaking.</p>
+            <p>This test will evaluate your English proficiency in Reading, Writing, Speaking, and Listening.</p>
             <p>The test follows Cambridge English standards and will take approximately 15 minutes to complete.</p>
-            
+
             <div class="test-info">
                 <div>
                     <h3>Test Guidelines:</h3>
@@ -389,36 +389,36 @@
                 <input type="email" id="email-address" placeholder="Email Address" required>
                 <input type="email" id="email-address-ar" placeholder="البريد الإلكتروني (عربي)" dir="rtl" required>
             </div>
-            
+
             <div>
                 <label>
                     <input type="checkbox" id="agree-terms"> I confirm that I will complete this test without assistance and that the results will reflect my actual English proficiency level.
                 </label>
             </div>
-            
+
             <button id="start-test" class="btn btn-primary" disabled>Begin Test</button>
         </div>
-        
+
         <div id="reading-section" class="test-section hidden">
             <div class="section-header">
                 <h2 class="section-title">Reading Comprehension</h2>
                 <div class="timer">Time remaining: <span id="reading-timer">05:00</span></div>
             </div>
-            
+
             <div class="progress-container">
                 <div class="progress-bar" id="reading-progress" style="width: 0%"></div>
             </div>
-            
+
             <div class="question">
                 <p class="question-text">Read the following passage and answer the questions:</p>
-                
+
                 <div style="background-color: var(--secondary); padding: 15px; border-radius: 5px; margin-bottom: 20px;">
                     <h3>The Importance of Renewable Energy</h3>
                     <p>The world is increasingly turning towards renewable energy sources to combat climate change and ensure a sustainable future. Unlike fossil fuels, which are finite and contribute to greenhouse gas emissions, renewable energy sources such as solar, wind, hydro, and geothermal are naturally replenished and have a significantly lower environmental impact.</p>
                     <p>Solar energy, harnessed through photovoltaic panels, is becoming more efficient and affordable, making it a viable option for residential and commercial use. Wind energy, generated by turbines, is another rapidly growing sector, especially in coastal areas and open plains. Hydropower, while a mature technology, still offers significant potential in regions with abundant water resources.</p>
                     <p>Despite their clear advantages, transitioning to a fully renewable energy system presents challenges. These include the intermittency of some sources (e.g., sun not always shining, wind not always blowing), the need for large-scale energy storage solutions, and the initial infrastructure investment required. However, ongoing technological advancements and supportive government policies are gradually overcoming these hurdles, paving the way for a cleaner and more secure energy future.</p>
                 </div>
-                
+
                 <div class="question" data-question-type="multiple-choice" data-correct-answer="b">
                     <p class="question-text">1. What is the primary reason mentioned for shifting to renewable energy?</p>
                     <div class="options">
@@ -436,7 +436,7 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <div class="question" data-question-type="multiple-choice" data-correct-answer="c">
                     <p class="question-text">2. Which of the following is NOT mentioned as a renewable energy source in the passage?</p>
                     <div class="options">
@@ -454,7 +454,7 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <div class="question" data-question-type="true-false" data-correct-answer="true">
                     <p class="question-text">3. True or False: One challenge of renewable energy is the intermittency of some sources.</p>
                     <div class="options">
@@ -503,59 +503,59 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="navigation">
                 <button class="btn btn-accent" id="back-to-intro">Back</button>
                 <button class="btn btn-primary" id="next-to-writing">Next Section</button>
             </div>
         </div>
-        
+
         <div id="writing-section" class="test-section hidden">
             <div class="section-header">
                 <h2 class="section-title">Writing Skills</h2>
                 <div class="timer">Time remaining: <span id="writing-timer">05:00</span></div>
             </div>
-            
+
             <div class="progress-container">
                 <div class="progress-bar" id="writing-progress" style="width: 0%"></div>
             </div>
-            
+
             <div class="question">
                 <p class="question-text">Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. (5 questions)</p>
-                
+
                 <div class="writing-task-item">
-                    <p>1. It's possible that she forgot about the meeting.</p>
-                    <p>She ____________________ forgotten about the meeting. (HAVE)</p>
+                    <p>1. (A1) My name is Sarah.</p>
+                    <p>I ____________________ Sarah. (AM)</p>
                     <input type="text" class="writing-question-input" id="writing-q1" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>2. I haven't seen John for three months.</p>
+                    <p>2. (A2) I haven't seen John for three months.</p>
                     <p>The last time I saw John ____________________ three months ago. (WAS)</p>
                     <input type="text" class="writing-question-input" id="writing-q2" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>3. She started learning English five years ago.</p>
+                    <p>3. (B1) She started learning English five years ago.</p>
                     <p>She ____________________ English for five years. (HAS)</p>
                     <input type="text" class="writing-question-input" id="writing-q3" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>4. It was such a boring film that we left before the end.</p>
+                    <p>4. (B2) It was such a boring film that we left before the end.</p>
                     <p>The film was ____________________ we left before the end. (SO)</p>
                     <input type="text" class="writing-question-input" id="writing-q4" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>5. My brother is taller than me.</p>
-                    <p>I am not ____________________ my brother. (AS)</p>
+                    <p>5. (C1/C2) Despite the challenging conditions, they managed to complete the project on time.</p>
+                    <p>Although the conditions were ____________________, they managed to complete the project on time. (DIFFICULT)</p>
                     <input type="text" class="writing-question-input" id="writing-q5" placeholder="Your answer...">
                 </div>
                 <div class="word-count">Questions answered: <span id="writing-answered-count">0</span> / 5</div>
 
             </div>
-            
+
             <div class="navigation">
                 <button class="btn btn-accent" id="back-to-reading">Back</button>
                 <button class="btn btn-primary" id="next-to-speaking">Next Section</button>
@@ -564,32 +564,32 @@
 
         <div id="speaking-section" class="test-section hidden">
             <div class="section-header">
-                <h2 class="section-title">Speaking Test</h2>
+                <h2 class="section-title">Speaking & Listening Test</h2>
                 <div class="timer">Time remaining: <span id="speaking-timer">05:00</span></div>
             </div>
-            
+
             <div class="progress-container">
                 <div class="progress-bar" id="speaking-progress" style="width: 0%"></div>
             </div>
-            
-            <p class="question-text">Please complete the speaking test by clicking the button below. You will be redirected to our speaking test platform.</p>
-            
-            <!-- AidaForm Speaking Test Integration -->
+
+            <p class="question-text">Please complete the speaking and listening test by clicking the button below. You will be redirected to our test platform.</p>
+            <p class="red-remark">Your Speaking and Listening scores will be communicated after being reviewed by an IRIS expert.</p>
+
             <div class="aidaform-container">
                 <div data-aidaform-app="form202405" data-url="https://ishak.aidaform.com/speaking-test" data-width="100%" data-height="500px" data-do-resize></div>
             </div>
-            
+
             <div class="navigation">
                 <button class="btn btn-accent" id="back-to-writing">Back</button>
                 <button class="btn btn-primary" id="complete-test">Complete Test</button>
             </div>
         </div>
-        
+
         <div id="results-section" class="hidden">
             <div class="results-container">
                 <h2>Your English Proficiency Report</h2>
-                <p>Based on your performance across Reading, Writing, and Speaking sections.</p>
-                
+                <p>Based on your performance across Reading, Writing, Speaking, and Listening sections.</p>
+
                 <div class="score-card">
                     <h3>Participant Details:</h3>
                     <p><strong>Full Name (English):</strong> <span id="report-full-name-en"></span></p>
@@ -599,55 +599,62 @@
                     <p><strong>البريد الإلكتروني:</strong> <span id="report-email-address-ar" dir="rtl"></span></p>
 
                     <h3>Overall Score</h3>
-                    <div class="overall-score" id="overall-score">-- / 30</div>
+                    <div class="overall-score" id="overall-score">-- / 20</div>
                     <div class="cefr-level" id="cefr-level">--</div>
-                    
+
                     <div class="skill-meter">
                         <div class="skill">
                             <div class="skill-name">Reading</div>
                             <div class="meter">
                                 <div class="meter-fill" id="reading-meter" style="width: 0%"></div>
                             </div>
-                            <div class="skill-score" id="reading-score">0 / 10</div>
+                            <div class="skill-score" id="reading-score">0 / 5</div>
                         </div>
                         <div class="skill">
                             <div class="skill-name">Writing</div>
                             <div class="meter">
                                 <div class="meter-fill" id="writing-meter" style="width: 0%"></div>
                             </div>
-                            <div class="skill-score" id="writing-score">0 / 10</div>
+                            <div class="skill-score" id="writing-score">0 / 5</div>
                         </div>
                         <div class="skill">
                             <div class="skill-name">Speaking</div>
                             <div class="meter">
                                 <div class="meter-fill" id="speaking-meter" style="width: 0%"></div>
                             </div>
-                            <div class="skill-score" id="speaking-score">0 / 10</div>
+                            <div class="skill-score" id="speaking-score">To be assessed / 5</div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Listening</div>
+                            <div class="meter">
+                                <div class="meter-fill" id="listening-meter" style="width: 0%"></div>
+                            </div>
+                            <div class="skill-score" id="listening-score">To be assessed / 5</div>
                         </div>
                     </div>
-                    
+
                     <div class="recommendations">
                         <h4>Recommendations:</h4>
                         <p id="recommendation-text">Your personalized recommendations will appear here.</p>
-                        
+
                         <h4>Suggested Course:</h4>
                         <p id="suggested-course">Suggested course will appear here.</p>
 
-                        <h4>Speaking Test Recordings:</h4>
-                        <p>Your speaking test responses have been recorded and will be evaluated by our team.</p>
+                        <h4>Speaking & Listening Test Recordings:</h4>
+                        <p>Your speaking and listening test responses have been recorded and will be evaluated by our team. Results will be communicated separately.</p>
                     </div>
 
                     <div class="red-remark">
                         ⚠️ هذا التقرير يجب أن يُرسل إلى الإدارة فور تنزيله. واتساب: +213 795 36 90 06 <br>
                         ⚠️ This report must be sent to the admin as soon as you download it. WhatsApp: +213 795 36 90 06
                     </div>
-                    
+
                     <button class="btn btn-primary print-btn" id="print-results">Download PDF Report</button>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
@@ -693,9 +700,10 @@
         const sections = [introScreen, readingSection, writingSection, speakingSection, resultsSection];
         let readingScore = 0;
         let writingScore = 0;
-        let speakingScore = 0; // New score for speaking
-        const totalReadingQuestions = 5;
-        const totalWritingQuestions = 5;
+        let speakingScore = 0; // Speaking score will be manually assessed
+        let listeningScore = 0; // Listening score will be manually assessed
+        const totalReadingQuestions = 5; // Each question worth 1 point for a total of 5
+        const totalWritingQuestions = 5; // Each question worth 1 point for a total of 5
 
         // Initialize AidaForm script
         (function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-app";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://widget.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})();
@@ -726,7 +734,7 @@
 
         nextToSpeakingBtn.addEventListener('click', function() {
             navigateToSection(3);
-            startTimer('speaking', 5 * 60); // 5 minutes for speaking
+            startTimer('speaking', 5 * 60); // 5 minutes for speaking (for pacing, not for auto-score)
         });
 
         backToWritingBtn.addEventListener('click', function() {
@@ -765,14 +773,14 @@
             const interval = setInterval(function() {
                 const minutes = Math.floor(timer / 60);
                 const seconds = timer % 60;
-                
-                document.getElementById(`${section}-timer`).textContent = 
+
+                document.getElementById(`${section}-timer`).textContent =
                     `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-                
+
                 // Update progress bar
                 const progress = ((durationInSeconds - timer) / durationInSeconds) * 100;
                 document.getElementById(`${section}-progress`).style.width = `${progress}%`;
-                
+
                 if (--timer < 0) {
                     clearInterval(interval);
                     // Auto-submit or move to next section if time runs out
@@ -783,6 +791,7 @@
                         navigateToSection(3);
                         startTimer('speaking', 5 * 60);
                     }
+                    // For speaking, timer just runs out, doesn't auto-navigate to results
                 }
             }, 1000);
         }
@@ -806,22 +815,34 @@
             readingQuestions.forEach(question => {
                 const correctAnswer = question.getAttribute('data-correct-answer');
                 const selectedOption = question.querySelector(`input[type="radio"]:checked`);
-                
+
                 if (selectedOption && selectedOption.value === correctAnswer) {
-                    readingScore += 2; // 2 points per correct answer
+                    readingScore += 1; // 1 point per correct answer, total 5
                 }
             });
 
             // Calculate writing score (simplified - would normally be evaluated by teacher)
             writingScore = 0;
+            const writingCorrectAnswers = {
+                'writing-q1': 'am', // A1
+                'writing-q2': 'was', // A2
+                'writing-q3': 'has been learning', // B1 - example of multiple words
+                'writing-q4': 'so boring that', // B2
+                'writing-q5': 'difficult' // C1/C2 - example of single word but complex context
+            };
             writingQuestionInputs.forEach(input => {
-                if (input.value.trim() !== '') {
-                    writingScore += 2; // 2 points per answered question
+                const questionId = input.id;
+                // Simple check: if the input is not empty, give it 1 point for now.
+                // A more robust system would involve comparing with correct answers or AI evaluation.
+                if (input.value.trim().toLowerCase() === writingCorrectAnswers[questionId].toLowerCase()) {
+                    writingScore += 1; // 1 point per correct answer, total 5
                 }
             });
 
-            // Speaking score (would normally come from evaluation)
-            speakingScore = 6; // Placeholder score
+
+            // Speaking and Listening scores are not calculated here. They are "To be assessed."
+            speakingScore = 0; // Initialize to 0, will be manually updated
+            listeningScore = 0; // Initialize to 0, will be manually updated
 
             // Update results display
             document.getElementById('report-full-name-en').textContent = fullNameEnInput.value;
@@ -830,45 +851,50 @@
             document.getElementById('report-email-address').textContent = emailAddressInput.value;
             document.getElementById('report-email-address-ar').textContent = emailAddressArInput.value;
 
-            const totalScore = readingScore + writingScore + speakingScore;
-            document.getElementById('overall-score').textContent = `${totalScore} / 30`;
-            
+            // Overall score now only includes Reading and Writing, plus a note about pending scores
+            const calculatedTotalScore = readingScore + writingScore;
+            document.getElementById('overall-score').textContent = `${calculatedTotalScore} / 10 (Reading & Writing only - Speaking & Listening to be assessed)`;
+
             // Update skill meters
-            document.getElementById('reading-score').textContent = `${readingScore} / 10`;
-            document.getElementById('writing-score').textContent = `${writingScore} / 10`;
-            document.getElementById('speaking-score').textContent = `${speakingScore} / 10`;
-            
-            document.getElementById('reading-meter').style.width = `${(readingScore / 10) * 100}%`;
-            document.getElementById('writing-meter').style.width = `${(writingScore / 10) * 100}%`;
-            document.getElementById('speaking-meter').style.width = `${(speakingScore / 10) * 100}%`;
-            
-            // Determine CEFR level
+            document.getElementById('reading-score').textContent = `${readingScore} / 5`;
+            document.getElementById('writing-score').textContent = `${writingScore} / 5`;
+            document.getElementById('speaking-score').textContent = `To be assessed / 5`;
+            document.getElementById('listening-score').textContent = `To be assessed / 5`;
+
+            document.getElementById('reading-meter').style.width = `${(readingScore / 5) * 100}%`;
+            document.getElementById('writing-meter').style.width = `${(writingScore / 5) * 100}%`;
+            // Speaking and Listening meters will not be filled based on automatic scores
+            document.getElementById('speaking-meter').style.width = `0%`;
+            document.getElementById('listening-meter').style.width = `0%`;
+
+            // Determine CEFR level based on available scores (Reading + Writing)
             let cefrLevel = '';
             let recommendations = '';
             let suggestedCourse = '';
-            
-            if (totalScore >= 25) {
-                cefrLevel = 'C1 - Advanced';
-                recommendations = 'You have demonstrated advanced English proficiency. Consider focusing on specialized vocabulary or academic writing to further refine your skills.';
-                suggestedCourse = 'Advanced English (C1 Level)';
-            } else if (totalScore >= 18) {
+            const combinedRWScore = readingScore + writingScore; // Max 10
+
+            if (combinedRWScore >= 9) { // Equivalent to C1/C2 range for RW
+                cefrLevel = 'C1/C2 - Proficient';
+                recommendations = 'You have demonstrated a high level of English proficiency in Reading and Writing. Focus on refining subtle nuances and complex structures. Your Speaking and Listening results will provide further insight.';
+                suggestedCourse = 'Advanced English (C1/C2 Level)';
+            } else if (combinedRWScore >= 7) { // Equivalent to B2 range for RW
                 cefrLevel = 'B2 - Upper Intermediate';
-                recommendations = 'You have a good command of English. Focus on expanding your vocabulary and practicing more complex grammatical structures to reach an advanced level.';
+                recommendations = 'You have a good command of English in Reading and Writing. Expand your vocabulary and practice more complex grammatical structures. Your Speaking and Listening results will provide further insight.';
                 suggestedCourse = 'Upper Intermediate English (B2 Level)';
-            } else if (totalScore >= 12) {
+            } else if (combinedRWScore >= 5) { // Equivalent to B1 range for RW
                 cefrLevel = 'B1 - Intermediate';
-                recommendations = 'You have an intermediate level of English. Practice all language skills regularly, with particular attention to speaking fluency and writing accuracy.';
+                recommendations = 'You have an intermediate level of English in Reading and Writing. Regular practice across all skills is recommended, especially for speaking fluency and listening comprehension.';
                 suggestedCourse = 'Intermediate English (B1 Level)';
-            } else if (totalScore >= 6) {
+            } else if (combinedRWScore >= 3) { // Equivalent to A2 range for RW
                 cefrLevel = 'A2 - Pre-Intermediate';
-                recommendations = 'You have a basic command of English. Focus on building vocabulary and mastering fundamental grammar to improve your communication skills.';
+                recommendations = 'You have a basic command of English in Reading and Writing. Focus on building core vocabulary and mastering fundamental grammar. Your Speaking and Listening results will provide further insight.';
                 suggestedCourse = 'Pre-Intermediate English (A2 Level)';
-            } else {
+            } else { // Equivalent to A1 range for RW
                 cefrLevel = 'A1 - Beginner';
-                recommendations = 'You are at the beginning stages of learning English. Regular practice with basic vocabulary, simple sentences, and pronunciation will help you progress.';
+                recommendations = 'You are at the beginning stages of learning English. Consistent practice with basic vocabulary, simple sentences, and pronunciation will help you progress.';
                 suggestedCourse = 'Beginner English (A1 Level)';
             }
-            
+
             document.getElementById('cefr-level').textContent = cefrLevel;
             document.getElementById('recommendation-text').textContent = recommendations;
             document.getElementById('suggested-course').textContent = suggestedCourse;
@@ -877,37 +903,32 @@
         // Generate PDF report
         function generatePDF() {
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            // Add content to PDF
-            doc.setFontSize(18);
-            doc.text('IRIS Language Academy - English Proficiency Report', 105, 15, { align: 'center' });
-            
-            doc.setFontSize(12);
-            doc.text(`Name (English): ${fullNameEnInput.value}`, 20, 30);
-            doc.text(`Name (Arabic): ${fullNameArInput.value}`, 20, 40);
-            doc.text(`Phone: ${phoneNumberInput.value}`, 20, 50);
-            doc.text(`Email: ${emailAddressInput.value}`, 20, 60);
-            
-            doc.setFontSize(16);
-            doc.text('Test Results', 105, 80, { align: 'center' });
-            
-            doc.setFontSize(14);
-            doc.text(`Overall Score: ${readingScore + writingScore + speakingScore}/30`, 20, 90);
-            doc.text(`CEFR Level: ${document.getElementById('cefr-level').textContent}`, 20, 100);
-            
-            doc.text('Skill Breakdown:', 20, 115);
-            doc.text(`Reading: ${readingScore}/10`, 30, 125);
-            doc.text(`Writing: ${writingScore}/10`, 30, 135);
-            doc.text(`Speaking: ${speakingScore}/10`, 30, 145);
-            
-            doc.text('Recommendations:', 20, 160);
-            doc.setFontSize(12);
-            const splitText = doc.splitTextToSize(document.getElementById('recommendation-text').textContent, 170);
-            doc.text(splitText, 20, 170);
-            
-            // Save the PDF
-            doc.save(`IRIS_English_Test_${fullNameEnInput.value.replace(/\s+/g, '_')}.pdf`);
+            const input = document.getElementById('score-card'); // Capture the score-card div
+
+            html2canvas(input, { scale: 2 }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 210; // A4 width in mm
+                const pageHeight = 297; // A4 height in mm
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                let heightLeft = imgHeight;
+
+                const doc = new jsPDF('p', 'mm');
+                let position = 0;
+
+                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    doc.addPage();
+                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+
+                // Save the PDF
+                const fileName = `IRIS_English_Test_Report_${fullNameEnInput.value.replace(/\s+/g, '_')}.pdf`;
+                doc.save(fileName);
+            });
         }
     </script>
 </body>

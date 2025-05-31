@@ -521,36 +521,195 @@
             </div>
 
             <div class="question">
-                <p class="question-text">Part 1: Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. (3 questions)</p>
+                <p class="question-text">Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. (5 questions)</p>
 
                 <div class="writing-task-item">
-                    <p>1. (A2) She started learning English two years ago.</p>
-                    <p>She ____________________ English for two years. (HAS)</p>
+                    <p>1. (A1) My name is Sarah.</p>
+                    <p>I ____________________ Sarah. (AM)</p>
                     <input type="text" class="writing-question-input" id="writing-q1" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>2. (B1) It was impossible for us to finish the project on time.</p>
-                    <p>We ____________________ finish the project on time. (COULDN'T)</p>
+                    <p>2. (A2) I haven't seen John for three months.</p>
+                    <p>The last time I saw John ____________________ three months ago. (WAS)</p>
                     <input type="text" class="writing-question-input" id="writing-q2" placeholder="Your answer...">
                 </div>
 
                 <div class="writing-task-item">
-                    <p>3. (B2) I regret not studying harder for the exam.</p>
-                    <p>I wish ____________________ harder for the exam. (HAD)</p>
+                    <p>3. (B1) It's a long time since I last visited my grandparents.</p>
+                    <p>I ____________________ my grandparents for a long time. (VISITED)</p>
                     <input type="text" class="writing-question-input" id="writing-q3" placeholder="Your answer...">
                 </div>
 
-                <p class="question-text" style="margin-top: 30px;">Part 2: Write a short paragraph (50-80 words) on the following topic. (1 question)</p>
-                <p class="question-text"><strong>Topic: Describe a place you enjoy visiting and explain why it is special to you.</strong></p>
-                <textarea class="writing-area" id="writing-q4" placeholder="Write your paragraph here..."></textarea>
-                <div class="word-count">Word count: <span id="writing-word-count">0</span></div>
+                <div class="writing-task-item">
+                    <p>4. (B2) They say that a healthy diet is essential for a good life.</p>
+                    <p>A healthy diet ____________________ to be essential for a good life. (SAID)</p>
+                    <input type="text" class="writing-question-input" id="writing-q4" placeholder="Your answer...">
+                </div>
 
-                <div class="word-count" style="margin-top: 20px;">Questions answered: <span id="writing-answered-count">0</span> / 4</div>
+                <div class="writing-task-item">
+                    <p>5. (C1/C2) She is such a brilliant speaker that everyone listens attentively.</p>
+                    <p>Such ____________________ everyone listens attentively. (SPEAKER)</p>
+                    <input type="text" class="writing-question-input" id="writing-q5" placeholder="Your answer...">
+                </div>
+                <div class="word-count">Questions answered: <span id="writing-answered-count">0</span> / 5</div>
+
             </div>
 
             <div class="navigation">
                 <button class="btn btn-accent" id="back-to-reading">Back</button>
+                <button class="btn btn-primary" id="next-to-listening">Next Section</button>
+            </div>
+        </div>
+
+        <div id="listening-section" class="test-section hidden">
+            <div class="section-header">
+                <h2 class="section-title">Listening Comprehension</h2>
+                <div class="timer">Time remaining: <span id="listening-timer">05:00</span></div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="listening-progress" style="width: 0%"></div>
+            </div>
+
+            <div class="question">
+                <p class="question-text">Listen to the audio and answer the questions.</p>
+
+                <div style="margin-bottom: 20px;">
+                    <h3>Listening Part 1</h3>
+                    <div style="height: 228px; width: 600px;"><iframe src="https://audio.com/embed/audio/1833609580912416?theme=image"
+                            style="display:block; border-radius: 1px; border: none; height: 204px; width: 600px;"></iframe><a href='https://audio.com/ishak-zerdazi' style="text-align: center; display: block; color: #A4ABB6; font-size: 12px; font-family: sans-serif; line-height: 16px; margin-top: 8px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">@ishak-zerdazi</a></div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="a">
+                        <p class="question-text">1. Where is Samy from?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening1" value="a"> Canada
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening1" value="b"> Australia
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening1" value="c"> England
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="b">
+                        <p class="question-text">2. What is Samy's job?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening2" value="a"> Teacher
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening2" value="b"> Librarian
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening2" value="c"> Doctor
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="b">
+                        <p class="question-text">3. When does Samy work?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening3" value="a"> On weekends
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening3" value="b"> Monday to Friday
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening3" value="c"> Only at night
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="b">
+                        <p class="question-text">4. What does Samy like to do on weekends?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening4" value="a"> Read books at work
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening4" value="b"> Rest and walk in the park
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening4" value="c"> Go to school
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h3>Listening Part 2</h3>
+                    <div style="height: 228px; width: 600px;"><iframe src="https://audio.com/embed/audio/1833610239927265?theme=image"
+                            style="display:block; border-radius: 1px; border: none; height: 204px; width: 600px;"></iframe><a href='https://audio.com/ishak-zerdazi' style="text-align: center; display: block; color: #A4ABB6; font-size: 12px; font-family: sans-serif; line-height: 16px; margin-top: 8px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">@ishak-zerdazi</a></div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="b">
+                        <p class="question-text">1. What is the speaker’s topic?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening5" value="a"> Weather forecasts
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening5" value="b"> Climate change and farming
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening5" value="c"> New farming tools
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="b">
+                        <p class="question-text">2. What effect has drought had in Africa?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening6" value="a"> Increased crop production
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening6" value="b"> Reduced crop production
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening6" value="c"> More floods
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="a">
+                        <p class="question-text">3. What problem is mentioned about Asia?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening7" value="a"> Soil erosion caused by floods
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening7" value="b"> Drought
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening7" value="c"> Pests in farms
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question-type="multiple-choice" data-correct-answer="a">
+                        <p class="question-text">4. What solutions are proposed?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="listening8" value="a"> Using drought-resistant crops and better irrigation
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening8" value="b"> Stopping farming
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="listening8" value="c"> Building more cities
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-accent" id="back-to-writing">Back</button>
                 <button class="btn btn-primary" id="next-to-speaking">Next Section</button>
             </div>
         </div>
@@ -573,12 +732,13 @@
             </div>
 
             <div class="navigation">
-                <button class="btn btn-accent" id="back-to-writing">Back</button>
+                <button class="btn btn-accent" id="back-to-listening">Back</button>
                 <button class="btn btn-primary" id="complete-test">Complete Test</button>
             </div>
         </div>
 
-        <div id="results-section" class="test-section hidden"> <div class="results-container">
+        <div id="results-section" class="hidden">
+            <div class="results-container">
                 <h2>Your English Proficiency Report</h2>
                 <p>Based on your performance across Reading, Writing, Speaking, and Listening sections.</p>
 
@@ -591,7 +751,7 @@
                     <p><strong>البريد الإلكتروني:</strong> <span id="report-email-address-ar" dir="rtl"></span></p>
 
                     <h3>Overall Score</h3>
-                    <div class="overall-score" id="overall-score">-- / 8 (Reading & Writing Part 1 only - Other sections to be assessed)</div>
+                    <div class="overall-score" id="overall-score">-- / 10 (Reading & Writing only - Speaking & Listening to be assessed)</div>
                     <div class="cefr-level" id="cefr-level">--</div>
 
                     <div class="skill-meter">
@@ -603,32 +763,25 @@
                             <div class="skill-score" id="reading-score">0 / 5</div>
                         </div>
                         <div class="skill">
-                            <div class="skill-name">Writing (Part 1)</div>
+                            <div class="skill-name">Writing</div>
                             <div class="meter">
                                 <div class="meter-fill" id="writing-meter" style="width: 0%"></div>
                             </div>
-                            <div class="skill-score" id="writing-score">0 / 3</div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name">Writing (Part 2)</div>
-                            <div class="meter">
-                                <div class="meter-fill" id="writing-part2-meter" style="width: 0%"></div>
-                            </div>
-                            <div class="skill-score" id="writing-part2-score">To be assessed</div>
+                            <div class="skill-score" id="writing-score">0 / 5</div>
                         </div>
                         <div class="skill">
                             <div class="skill-name">Speaking</div>
                             <div class="meter">
                                 <div class="meter-fill" id="speaking-meter" style="width: 0%"></div>
                             </div>
-                            <div class="skill-score" id="speaking-score">To be assessed</div>
+                            <div class="skill-score" id="speaking-score">To be assessed / 5</div>
                         </div>
                         <div class="skill">
                             <div class="skill-name">Listening</div>
                             <div class="meter">
                                 <div class="meter-fill" id="listening-meter" style="width: 0%"></div>
                             </div>
-                            <div class="skill-score" id="listening-score">To be assessed</div>
+                            <div class="skill-score" id="listening-score">To be assessed / 5</div>
                         </div>
                     </div>
 
@@ -639,9 +792,8 @@
                         <h4>Suggested Course:</h4>
                         <p id="suggested-course">Suggested course will appear here.</p>
 
-                        <h4>Speaking & Listening Test Recordings:</h4>
-                        <p>Your speaking and listening test responses have been recorded and will be evaluated by our team. Results will be communicated separately.</p>
-                        <p>Your Writing Part 2 (paragraph) response will also be assessed manually.</p>
+                        <h4>Speaking Test Recordings:</h4>
+                        <p>Your speaking test responses have been recorded and will be evaluated by our team. Results will be communicated separately.</p>
                     </div>
 
                     <div class="red-remark">
@@ -664,6 +816,7 @@
         const introScreen = document.getElementById('intro-screen');
         const readingSection = document.getElementById('reading-section');
         const writingSection = document.getElementById('writing-section');
+        const listeningSection = document.getElementById('listening-section'); // New
         const speakingSection = document.getElementById('speaking-section');
         const resultsSection = document.getElementById('results-section');
 
@@ -678,35 +831,37 @@
         const backToIntroBtn = document.getElementById('back-to-intro');
         const nextToWritingBtn = document.getElementById('next-to-writing');
         const backToReadingBtn = document.getElementById('back-to-reading');
-        const nextToSpeakingBtn = document.getElementById('next-to-speaking');
+        const nextToListeningBtn = document.getElementById('next-to-listening'); // New
         const backToWritingBtn = document.getElementById('back-to-writing');
+        const nextToSpeakingBtn = document.getElementById('next-to-speaking');
+        const backToListeningBtn = document.getElementById('back-to-listening'); // New, used in speaking section
         const completeTestBtn = document.getElementById('complete-test');
         const printResultsBtn = document.getElementById('print-results');
 
         // Timers and progress bars
         const readingTimerDisplay = document.getElementById('reading-timer');
         const writingTimerDisplay = document.getElementById('writing-timer');
+        const listeningTimerDisplay = document.getElementById('listening-timer'); // New
         const speakingTimerDisplay = document.getElementById('speaking-timer');
         const readingProgressBar = document.getElementById('reading-progress');
         const writingProgressBar = document.getElementById('writing-progress');
+        const listeningProgressBar = document.getElementById('listening-progress'); // New
         const speakingProgressBar = document.getElementById('speaking-progress');
 
         // Writing section elements
         const writingQuestionInputs = document.querySelectorAll('.writing-question-input');
-        const writingParagraphInput = document.getElementById('writing-q4');
         const writingAnsweredCountDisplay = document.getElementById('writing-answered-count');
-        const writingWordCountDisplay = document.getElementById('writing-word-count');
-
 
         // Test state
-        let currentSection = 0; // 0: Intro, 1: Reading, 2: Writing, 3: Speaking, 4: Results
-        const sections = [introScreen, readingSection, writingSection, speakingSection, resultsSection];
+        let currentSection = 0; // 0: Intro, 1: Reading, 2: Writing, 3: Listening, 4: Speaking, 5: Results
+        const sections = [introScreen, readingSection, writingSection, listeningSection, speakingSection, resultsSection]; // Updated sections array
         let readingScore = 0;
-        let writingScorePart1 = 0; // For sentence transformations
+        let writingScore = 0;
         let speakingScore = 0; // Speaking score will be manually assessed
-        let listeningScore = 0; // Listening score will be manually assessed
+        let listeningScore = 0;
         const totalReadingQuestions = 5; // Each question worth 1 point for a total of 5
-        const totalWritingPart1Questions = 3; // Each question worth 1 point for a total of 3
+        const totalWritingQuestions = 5; // Each question worth 1 point for a total of 5
+        const totalListeningQuestions = 8; // Each question worth 1 point for a total of 8
 
         // Initialize AidaForm script
         (function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-app";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://widget.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})();
@@ -735,18 +890,27 @@
             navigateToSection(1);
         });
 
-        nextToSpeakingBtn.addEventListener('click', function() {
-            navigateToSection(3);
-            startTimer('speaking', 5 * 60); // 5 minutes for speaking (for pacing, not for auto-score)
+        nextToListeningBtn.addEventListener('click', function() { // New
+            navigateToSection(3); // Navigates to listening section (index 3)
+            startTimer('listening', 5 * 60); // 5 minutes for listening
         });
 
         backToWritingBtn.addEventListener('click', function() {
-            navigateToSection(2);
+            navigateToSection(2); // Navigates back to writing section (index 2)
+        });
+
+        nextToSpeakingBtn.addEventListener('click', function() {
+            navigateToSection(4); // Now navigates to speaking section (index 4)
+            startTimer('speaking', 5 * 60); // 5 minutes for speaking (for pacing, not for auto-score)
+        });
+
+        backToListeningBtn.addEventListener('click', function() { // New, from speaking to listening
+            navigateToSection(3); // Navigates back to listening section (index 3)
         });
 
         completeTestBtn.addEventListener('click', function() {
             calculateScores();
-            navigateToSection(4);
+            navigateToSection(5); // Now navigates to results section (index 5)
         });
 
         printResultsBtn.addEventListener('click', function() {
@@ -757,8 +921,6 @@
         writingQuestionInputs.forEach(input => {
             input.addEventListener('input', updateWritingProgress);
         });
-        writingParagraphInput.addEventListener('input', updateWritingProgress);
-
 
         // Navigation function
         function navigateToSection(sectionIndex) {
@@ -775,12 +937,7 @@
         // Timer function
         function startTimer(section, durationInSeconds) {
             let timer = durationInSeconds;
-            // Clear any existing interval for this section to prevent multiple timers running
-            if (window[`${section}Interval`]) {
-                clearInterval(window[`${section}Interval`]);
-            }
-
-            window[`${section}Interval`] = setInterval(function() {
+            const interval = setInterval(function() {
                 const minutes = Math.floor(timer / 60);
                 const seconds = timer % 60;
 
@@ -792,13 +949,16 @@
                 document.getElementById(`${section}-progress`).style.width = `${progress}%`;
 
                 if (--timer < 0) {
-                    clearInterval(window[`${section}Interval`]);
+                    clearInterval(interval);
                     // Auto-submit or move to next section if time runs out
                     if (section === 'reading') {
                         navigateToSection(2);
                         startTimer('writing', 5 * 60);
                     } else if (section === 'writing') {
-                        navigateToSection(3);
+                        navigateToSection(3); // Auto-nav to listening
+                        startTimer('listening', 5 * 60);
+                    } else if (section === 'listening') { // New condition
+                        navigateToSection(4); // Auto-nav to speaking
                         startTimer('speaking', 5 * 60);
                     }
                     // For speaking, timer just runs out, doesn't auto-navigate to results
@@ -806,25 +966,14 @@
             }, 1000);
         }
 
-        // Update writing progress counter and word count for paragraph
+        // Update writing progress counter
         function updateWritingProgress() {
             let answeredCount = 0;
-            // Count for sentence transformation questions
-            document.querySelectorAll('.writing-task-item input.writing-question-input').forEach(input => {
+            writingQuestionInputs.forEach(input => {
                 if (input.value.trim() !== '') {
                     answeredCount++;
                 }
             });
-
-            // Count for paragraph question if it has content
-            const paragraphText = writingParagraphInput.value.trim();
-            const words = paragraphText.split(/\s+/).filter(word => word.length > 0);
-            writingWordCountDisplay.textContent = words.length;
-
-            if (paragraphText !== '') {
-                answeredCount++; // Consider the paragraph answered if there's any text
-            }
-
             writingAnsweredCountDisplay.textContent = answeredCount;
         }
 
@@ -842,27 +991,40 @@
                 }
             });
 
-            // Calculate writing score (Part 1: sentence transformations)
-            writingScorePart1 = 0;
-            const writingPart1CorrectAnswers = {
-                'writing-q1': 'has been learning', // "She HAS BEEN LEARNING English for two years."
-                'writing-q2': 'couldn\'t finish', // "We COULDN'T FINISH the project on time."
-                'writing-q3': 'I had studied', // "I WISH I HAD STUDIED harder for the exam."
+            // Calculate writing score (simplified - would normally be evaluated by teacher)
+            writingScore = 0;
+            const writingCorrectAnswers = {
+                'writing-q1': 'am',
+                'writing-q2': 'was',
+                'writing-q3': 'haven\'t visited', // Updated for B1
+                'writing-q4': 'is said', // Updated for B2
+                'writing-q5': 'a brilliant speaker is she that' // Updated for C1/C2 (complex inversion)
             };
-            document.querySelectorAll('.writing-task-item input.writing-question-input').forEach(input => {
+            writingQuestionInputs.forEach(input => {
                 const questionId = input.id;
-                // Normalize input and correct answers for comparison
-                const userAnswer = input.value.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ");
-                const correctAnswer = writingPart1CorrectAnswers[questionId] ? writingPart1CorrectAnswers[questionId].toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ") : '';
-
-                if (userAnswer === correctAnswer) {
-                    writingScorePart1 += 1; // 1 point per correct answer, total 3
+                // Simple check: if the input is not empty, give it 1 point for now.
+                // A more robust system would involve comparing with correct answers or AI evaluation.
+                if (input.value.trim().toLowerCase() === writingCorrectAnswers[questionId].toLowerCase()) {
+                    writingScore += 1; // 1 point per correct answer, total 5
                 }
             });
 
-            // Speaking and Listening scores are not calculated here. They are "To be assessed."
+            // Calculate listening score
+            listeningScore = 0;
+            const listeningQuestions = document.querySelectorAll('#listening-section [data-question-type]');
+            listeningQuestions.forEach(question => {
+                const correctAnswer = question.getAttribute('data-correct-answer');
+                const selectedOption = question.querySelector(`input[type="radio"]:checked`);
+
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    listeningScore += 1; // 1 point per correct answer, total 8
+                }
+            });
+
+
+            // Speaking score is not calculated here. It is "To be assessed."
             speakingScore = 0; // Initialize to 0, will be manually updated
-            listeningScore = 0; // Initialize to 0, will be manually updated
+
 
             // Update results display
             document.getElementById('report-full-name-en').textContent = fullNameEnInput.value;
@@ -871,47 +1033,49 @@
             document.getElementById('report-email-address').textContent = emailAddressInput.value;
             document.getElementById('report-email-address-ar').textContent = emailAddressArInput.value;
 
-            // Overall score now only includes Reading and Writing Part 1, plus a note about pending scores
-            const calculatedTotalScore = readingScore + writingScorePart1;
-            document.getElementById('overall-score').textContent = `${calculatedTotalScore} / 8 (Reading & Writing Part 1 only - Other sections to be assessed)`;
+            // Overall score now includes Reading, Writing, and Listening, plus a note about pending Speaking score
+            const calculatedTotalScore = readingScore + writingScore + listeningScore;
+            document.getElementById('overall-score').textContent = `${calculatedTotalScore} / 18 (Speaking to be assessed)`;
 
             // Update skill meters
             document.getElementById('reading-score').textContent = `${readingScore} / 5`;
-            document.getElementById('writing-score').textContent = `${writingScorePart1} / ${totalWritingPart1Questions}`;
-            document.getElementById('speaking-score').textContent = `To be assessed`;
-            document.getElementById('listening-score').textContent = `To be assessed`;
-            document.getElementById('writing-part2-score').textContent = `To be assessed`; // For the paragraph
+            document.getElementById('writing-score').textContent = `${writingScore} / 5`;
+            document.getElementById('speaking-score').textContent = `To be assessed / 5`;
+            document.getElementById('listening-score').textContent = `${listeningScore} / 8`;
 
             document.getElementById('reading-meter').style.width = `${(readingScore / 5) * 100}%`;
-            document.getElementById('writing-meter').style.width = `${(writingScorePart1 / totalWritingPart1Questions) * 100}%`;
-            // Speaking, Listening, and Writing Part 2 meters will not be filled based on automatic scores
+            document.getElementById('writing-meter').style.width = `${(writingScore / 5) * 100}%`;
+            document.getElementById('listening-meter').style.width = `${(listeningScore / 8) * 100}%`;
+            // Speaking meter will not be filled based on automatic scores
             document.getElementById('speaking-meter').style.width = `0%`;
-            document.getElementById('listening-meter').style.width = `0%`;
-            document.getElementById('writing-part2-meter').style.width = `0%`;
 
 
-            // Determine CEFR level based on available scores (Reading + Writing Part 1)
+            // Determine CEFR level based on available scores (Reading + Writing + Listening)
             let cefrLevel = '';
             let recommendations = '';
             let suggestedCourse = '';
-            const combinedRWPart1Score = readingScore + writingScorePart1; // Max 8 (5 Reading + 3 Writing Part 1)
+            const combinedRWLScore = readingScore + writingScore + listeningScore; // Max 18
 
-            if (combinedRWPart1Score >= 7) { // Equivalent to C1/B2+ range for RW Part 1
-                cefrLevel = 'B2/C1 - Proficient/Upper Intermediate';
-                recommendations = 'You have demonstrated a strong level of English proficiency in Reading and Writing grammar. Focus on expanding vocabulary and developing more complex sentence structures for written expression, and fluency for speaking. Your full assessment will provide more details.';
-                suggestedCourse = 'Upper Intermediate / Advanced English (B2/C1 Level)';
-            } else if (combinedRWPart1Score >= 5) { // Equivalent to B1/B2 range for RW Part 1
-                cefrLevel = 'B1/B2 - Intermediate/Upper Intermediate';
-                recommendations = 'You have a good command of English in Reading and Writing grammar. Regular practice across all skills, especially for writing longer texts and speaking confidently, is recommended. Your full assessment will provide more details.';
-                suggestedCourse = 'Intermediate / Upper Intermediate English (B1/B2 Level)';
-            } else if (combinedRWPart1Score >= 3) { // Equivalent to A2/B1 range for RW Part 1
-                cefrLevel = 'A2/B1 - Pre-Intermediate/Intermediate';
-                recommendations = 'You have a foundational command of English in Reading and Writing grammar. Focus on building core vocabulary, mastering fundamental grammar, and practicing sentence construction. Your full assessment will provide more details.';
-                suggestedCourse = 'Pre-Intermediate English (A2/B1 Level)';
-            } else { // Equivalent to A1/A2 range for RW Part 1
-                cefrLevel = 'A1/A2 - Beginner/Elementary';
-                recommendations = 'You are at the beginning stages of learning English. Consistent practice with basic vocabulary, simple sentences, and pronunciation will help you progress. Your full assessment will provide more details.';
-                suggestedCourse = 'Beginner / Elementary English (A1/A2 Level)';
+            if (combinedRWLScore >= 16) { // Adjusted range for C1/C2 (e.g., 90% of 18)
+                cefrLevel = 'C1/C2 - Proficient';
+                recommendations = 'You have demonstrated a high level of English proficiency across Reading, Writing, and Listening. Focus on refining subtle nuances and complex structures. Your Speaking results will provide further insight.';
+                suggestedCourse = 'Advanced English (C1/C2 Level)';
+            } else if (combinedRWLScore >= 13) { // Adjusted range for B2 (e.g., 70-89% of 18)
+                cefrLevel = 'B2 - Upper Intermediate';
+                recommendations = 'You have a good command of English in Reading, Writing, and Listening. Expand your vocabulary and practice more complex grammatical structures. Your Speaking results will provide further insight.';
+                suggestedCourse = 'Upper Intermediate English (B2 Level)';
+            } else if (combinedRWLScore >= 9) { // Adjusted range for B1 (e.g., 50-69% of 18)
+                cefrLevel = 'B1 - Intermediate';
+                recommendations = 'You have an intermediate level of English across Reading, Writing, and Listening. Regular practice across all skills is recommended, especially for speaking fluency.';
+                suggestedCourse = 'Intermediate English (B1 Level)';
+            } else if (combinedRWLScore >= 5) { // Adjusted range for A2 (e.g., 30-49% of 18)
+                cefrLevel = 'A2 - Pre-Intermediate';
+                recommendations = 'You have a basic command of English in Reading, Writing, and Listening. Focus on building core vocabulary and mastering fundamental grammar. Your Speaking results will provide further insight.';
+                suggestedCourse = 'Pre-Intermediate English (A2 Level)';
+            } else { // Adjusted range for A1 (e.g., 0-29% of 18)
+                cefrLevel = 'A1 - Beginner';
+                recommendations = 'You are at the beginning stages of learning English. Consistent practice with basic vocabulary, simple sentences, and pronunciation will help you progress.';
+                suggestedCourse = 'Beginner English (A1 Level)';
             }
 
             document.getElementById('cefr-level').textContent = cefrLevel;
@@ -922,76 +1086,80 @@
         // Generate PDF report
         function generatePDF() {
             const { jsPDF } = window.jspdf;
-            const input = document.getElementById('results-section'); // Target the whole results section
+            const input = document.getElementById('score-card');
 
+            // Log if input element is found
             if (!input) {
-                console.error("Error: 'results-section' element not found.");
-                alert("Could not find the results section to generate PDF. Please ensure the test is completed.");
+                console.error("Error: 'score-card' element not found.");
+                alert("Could not find the score card to generate PDF. Please ensure the test is completed.");
                 return;
             }
+            console.log("Found 'score-card' element:", input);
 
-            // Ensure the element is visible for html2canvas
-            input.style.display = 'block'; // Make sure it's not hidden
-            input.style.position = 'absolute'; // Temporarily position it to avoid layout shifts
-            input.style.left = '0';
-            input.style.top = '0';
-            input.style.zIndex = '-1'; // Send it to the back so it doesn't interfere with view
+            // Use a short delay to ensure rendering is complete after section becomes visible
+            // This is a common workaround for html2canvas issues after display changes
+            setTimeout(() => {
+                html2canvas(input, { scale: 2, useCORS: true, logging: true }).then(canvas => { // Added logging: true
+                    console.log("html2canvas finished rendering. Canvas:", canvas);
 
-            html2canvas(input, {
-                scale: 2, // Increase scale for better resolution
-                useCORS: true,
-                logging: true,
-                windowWidth: input.scrollWidth,
-                windowHeight: input.scrollHeight
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF('p', 'mm', 'a4'); // 'p' for portrait
-                const imgWidth = 210; // A4 width in mm
-                const pageHeight = 297; // A4 height in mm
-                const imgHeight = canvas.height * imgWidth / canvas.width; // Calculate image height to maintain aspect ratio
+                    if (!canvas) {
+                        console.error("Error: html2canvas returned an invalid canvas.");
+                        alert("Could not generate PDF report. HTML content could not be rendered.");
+                        return;
+                    }
 
-                let heightLeft = imgHeight;
-                let position = 0;
+                    const imgData = canvas.toDataURL('image/png');
+                    console.log("Canvas converted to image data. Data length:", imgData.length);
 
-                // Add first page
-                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
+                    if (!imgData || imgData.length < 100) { // Check for minimal image data size
+                        console.error("Error: Image data is empty or too small.");
+                        alert("Could not generate PDF report. Image data is missing.");
+                        return;
+                    }
 
-                // Add subsequent pages if content is taller than one A4 page
-                while (heightLeft > 0) {
-                    position = -heightLeft;
-                    pdf.addPage();
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+
+                    const imgWidth = 210; // A4 width in mm
+                    const pageHeight = 297; // A4 height in mm
+                    const imgHeight = canvas.height * imgWidth / canvas.width;
+
+                    let heightLeft = imgHeight;
+                    let position = 0;
+
+                    console.log(`Image dimensions: ${imgWidth}x${imgHeight}mm. Page height: ${pageHeight}mm`);
+
                     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    console.log(`Added first page image. Height left: ${heightLeft}`);
                     heightLeft -= pageHeight;
-                }
 
-                // Restore original visibility state
-                input.style.display = '';
-                input.style.position = '';
-                input.style.left = '';
-                input.style.top = '';
-                input.style.zIndex = '';
+                    let pageNum = 1;
+                    while (heightLeft > 0) {
+                        pageNum++;
+                        position = -heightLeft;
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        console.log(`Added page ${pageNum}. Height left: ${heightLeft}`);
+                        heightLeft -= pageHeight;
+                    }
 
-                const baseName = fullNameEnInput.value.replace(/[^a-zA-Z0-9_]/g, '_') || 'Participant';
-                const fileName = `IRIS_English_Test_Report_${baseName}.pdf`;
+                    // Ensure filename is safe
+                    const baseName = fullNameEnInput.value.replace(/[^a-zA-Z0-9_]/g, '_') || 'Participant'; // Sanitized filename
+                    const fileName = `IRIS_English_Test_Report_${baseName}.pdf`;
+                    console.log("Attempting to save PDF with filename:", fileName);
 
-                try {
-                    pdf.save(fileName);
-                } catch (saveError) {
-                    console.error("Error saving PDF:", saveError);
-                    alert("An error occurred while saving the PDF. Please check your browser's download settings.");
-                }
-            }).catch(error => {
-                console.error("Error during html2canvas rendering:", error);
-                alert("Could not generate PDF report due to rendering issues. Please try again or use a different browser.");
+                    try {
+                        pdf.save(fileName);
+                        console.log("PDF save initiated successfully.");
+                    } catch (saveError) {
+                        console.error("Error saving PDF:", saveError);
+                        alert("An error occurred while saving the PDF. Please check your browser's download settings.");
+                    }
 
-                // Ensure visibility is restored even on error
-                input.style.display = '';
-                input.style.position = '';
-                input.style.left = '';
-                input.style.top = '';
-                input.style.zIndex = '';
-            });
+                }).catch(error => {
+                    console.error("Error during html2canvas rendering:", error);
+                    alert("Could not generate PDF report due to rendering issues. Please try again or use a different browser.");
+                });
+            }, 100); // Small delay to ensure content is fully rendered
         }
     </script>
 </body>
